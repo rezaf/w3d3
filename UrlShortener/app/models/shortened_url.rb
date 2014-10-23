@@ -9,8 +9,8 @@ class ShortenedUrl < ActiveRecord::Base
   
   has_many(
     :visitors,
-    :through => :users,
-    :source => :visit
+    :through => :visits,
+    :source => :visitor
   )
   
   validates :long_url, :presence => true, :uniqueness => true
@@ -33,6 +33,10 @@ class ShortenedUrl < ActiveRecord::Base
       secure_string = SecureRandom.urlsafe_base64.gsub(/\W/, ["a".."z"].sample.first)
     end
     "www.hi.vw/" + secure_string
+  end
+  
+  def num_clicks
+    p ShortenedUrl.visitors
   end
 
 end

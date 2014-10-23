@@ -1,9 +1,9 @@
 class CreateVisits < ActiveRecord::Migration
   def change
     create_table :visits do |t|
-      t.string :user_id
-      t.string :shortened_url
-      t.time_stamp
+      t.integer :user_id
+      t.integer :shortened_url_id
+      t.timestamps
     end
   end
 end
