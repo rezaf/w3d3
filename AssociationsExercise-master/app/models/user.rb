@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
     :primary_key => :id
   )
  
-  has_many(:enrolled_courses, 
-          :through => :enrollments, 
-          :source  => :course
-          )
+  has_many(
+    :enrolled_courses, 
+    :through => :enrollments, 
+    :source  => :course
+  )
+  
 end
